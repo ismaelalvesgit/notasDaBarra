@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  key: 'AIzaSyA04qFnHvOPdmu-I9p3gbQvaBE4iBjKAjI',
+  baseUrl:'https://www.googleapis.com/blogger/v3/'
 };
 
 /*
