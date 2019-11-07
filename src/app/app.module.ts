@@ -21,6 +21,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
+//services
+import { BlogService } from "./services/blog.service";
+
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -47,7 +50,8 @@ import { AppComponent } from './app.component';
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    { provide: LOCALE_ID, useValue: 'pt-BR' }
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    BlogService
   ],
   bootstrap: [AppComponent]
 })
