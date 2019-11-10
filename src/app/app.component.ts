@@ -11,9 +11,5 @@ export class AppComponent implements OnInit {
 
   constructor(private blogS:BlogService){}
 
-  ngOnInit(){
-    this.blogS.getBlog().subscribe((rs)=>{
-      console.log(rs)
-    })
-  }
+  ngOnInit(){ }
 }
