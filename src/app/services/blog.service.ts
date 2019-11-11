@@ -39,7 +39,7 @@ export class BlogService {
     )
   }
 
-  //metodo que pega os dado de um comentario do blog
+  //metodo que pega os comentarios por ID
   getComment(postID:string, commentId:string){
     return this.http.get<Comment>(this.baseUrl+`/posts/${postID}/comments/${commentId}?key=${this.key}`)
   }
@@ -54,7 +54,7 @@ export class BlogService {
     )
   }
 
-  //metodo que pega as pages do blog
+  //metodo que pega page por ID do blog
   getPage(pageId:string){
     return this.http.get<Page>(this.baseUrl+`/pages/${pageId}?key=${this.key}`)
   }
