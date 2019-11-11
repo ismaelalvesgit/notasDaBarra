@@ -25,10 +25,16 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { BlogService } from "./services/blog.service";
 
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './includes/header/header.component';
+import { FooterComponent } from './includes/footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
