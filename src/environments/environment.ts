@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   key: 'AIzaSyA04qFnHvOPdmu-I9p3gbQvaBE4iBjKAjI',
-  baseUrl:'https://www.googleapis.com/blogger/v3/blogs/3213900',
+  baseUrl:'https://www.googleapis.com/blogger/v3/blogs/5220111383097179948',
 };
 
 /*

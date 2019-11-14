@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, Inject } from '@angular/core';
+import { Component, OnInit, HostListener, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -7,6 +7,8 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  @Input() name:string
 
   constructor() { }
 
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
       let element = document.getElementsByTagName('body')[0];
         element.classList.remove('sticky'); 
      }
+     console.log(window.pageYOffset)
   }
   
 }

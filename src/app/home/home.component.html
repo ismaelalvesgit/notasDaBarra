@@ -1,3 +1,90 @@
-<app-header></app-header>
-
+<app-header *ngIf="blog" [name]="blog.name"></app-header>
+<div class="carousel">
+  <div class="carousel-cell animated" style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
+    <div class="carousel-caption">
+      <div class="row justify-content-center animated zoomInUp">
+        <div class="col">
+          <h1 class="text-white text-1">Mais um projeto sendo constrúido</h1>
+          <p class="lead text-white">
+            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
+            it to make a type specimen book. 
+          </p>
+        </div>
+        <!-- <div class="col">
+          <img class="img-fluid img-rounded" src="/assets/imgs/AcademiaEnem2017-Logo.png" width="150">
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="carousel-cell animated" style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
+    <div class="carousel-caption">
+      <div class="row justify-content-center animated zoomInUp">
+        <div class="col">
+          <h3 class="text-white">Mais um projeto sendo constrúido</h3>
+          <p class="lead text-white">
+            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
+            it to make a type specimen book. 
+          </p>
+        </div>
+        <!-- <div class="col">
+          <img class="img-fluid" src="/assets/imgs/AcademiaEnem2017-Logo.png" width="150">
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="carousel-cell animated"  style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
+    <div class="carousel-caption">
+      <div class="row justify-content-center animated zoomInUp">
+        <div class="col">
+          <h1 class="text-white">Mais um projeto sendo constrúido</h1>
+          <p class="lead text-white">
+            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
+            it to make a type specimen book. 
+          </p>
+        </div>
+        <!-- <div class="col align-items-end">
+          <img class="img-fluid" src="/assets/imgs/AcademiaEnem2017-Logo.png" width="150">
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="container mt-3" style="height: 100vh; width: 100%; background: url('./assets/bg78.jpg') no-repeat center; background-size: cover;">
+    <div class="row justify-content-between">
+      <div class="col-md-6">
+        <h1>Sobre nós</h1>
+        <p class="lead">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make
+        </p>
+        <p class="lead">
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+          when an unknown printer took a galley of type and scrambled it to make
+        </p>
+        <button class="btn btn-outline-warning rounded">Saiba Mais...</button>
+      </div>
+      <div class="col-md-6 align-items-end">
+        <div class="card shadow card-news p-2" *ngIf="posts">
+          <h3 class="mb-3 text-white">Ultimas postages</h3>
+          <ng-container *ngFor="let post of posts">
+            <span class="text-warning">{{post.published | date:'fullDate'}}</span><br>
+            <strong class="text-white-50">{{post.title}}</strong>
+            <p class="lead text-white-50">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              Lorem Ipsum has been the industry's
+            </p>
+            <a [href]="post.url" target="_blank" class="text-white">Saiba Mais...</a>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
 <app-footer></app-footer>

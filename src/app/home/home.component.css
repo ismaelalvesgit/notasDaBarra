@@ -1,0 +1,8 @@
+.card-news{
+    border-radius: 20px;
+    background-color: #002147;
+    width: 300px;
+    position: absolute;
+    right: 0px;
+    top: -30px;
+}
