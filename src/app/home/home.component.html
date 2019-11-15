@@ -4,16 +4,13 @@
     <div class="carousel-caption">
       <div class="row justify-content-center animated zoomInUp">
         <div class="col">
-          <h1 class="text-white text-1">Mais um projeto sendo constrúido</h1>
+          <h3 class="text-white text-1">Mais um projeto sendo constrúido</h3>
           <p class="lead text-white">
             is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
             it to make a type specimen book. 
           </p>
         </div>
-        <!-- <div class="col">
-          <img class="img-fluid img-rounded" src="/assets/imgs/AcademiaEnem2017-Logo.png" width="150">
-        </div> -->
       </div>
     </div>
   </div>
@@ -28,9 +25,6 @@
             it to make a type specimen book. 
           </p>
         </div>
-        <!-- <div class="col">
-          <img class="img-fluid" src="/assets/imgs/AcademiaEnem2017-Logo.png" width="150">
-        </div> -->
       </div>
     </div>
   </div>
@@ -38,23 +32,20 @@
     <div class="carousel-caption">
       <div class="row justify-content-center animated zoomInUp">
         <div class="col">
-          <h1 class="text-white">Mais um projeto sendo constrúido</h1>
+          <h3 class="text-white">Mais um projeto sendo constrúido</h3>
           <p class="lead text-white">
             is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
             standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
             it to make a type specimen book. 
           </p>
         </div>
-        <!-- <div class="col align-items-end">
-          <img class="img-fluid" src="/assets/imgs/AcademiaEnem2017-Logo.png" width="150">
-        </div> -->
       </div>
     </div>
   </div>
 </div>
 <section style="width: 100%; background: url('./assets/bg78.jpg') no-repeat center; background-size: cover;">
   <div class="container mt-3">
-    <div class="row justify-content-between">
+    <div class="row ">
       <div class="col-md-6">
         <h1>Sobre nós</h1>
         <p class="lead">
@@ -70,30 +61,74 @@
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
           when an unknown printer took a galley of type and scrambled it to make
         </p>
-        <button class="btn btn-outline-warning rounded">Saiba Mais...</button>
+        <button class="btn btn-outline-warning btn-rounder">Saiba Mais...</button>
       </div>
       <div class="col-md-6 align-items-end">
         <div class="card shadow card-news p-2" *ngIf="posts">
           <h3 class="mb-3 text-white">Ultimas postages</h3>
           <ng-container *ngFor="let post of posts">
-            <span class="text-warning">{{post.published | date:'fullDate'}}</span><br>
+            <span class="text-warning">{{post.published | date:'fullDate'}}</span>
             <strong class="text-white-50">{{post.title}}</strong>
-            <p class="lead text-white-50">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's
-            </p>
-            <a [href]="post.url" target="_blank" class="text-white">Saiba Mais...</a>
+            <div class="row justify-content-between pr-3 pl-3">
+              <span class="text-white">{{post.author.displayName == 'Unknown' ? "Anonimo" : post.author.displayName}}</span>
+              <a [href]="post.author.url" target="_blank"><img [src]="post.author.image.url"></a>
+            </div>
+            <a [href]="post.url" target="_blank" class="text-white mt-3 mb-3">Saiba Mais...</a>
           </ng-container>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section style="height: 100vh; width: 100%; background: url('./assets/bg74.png') no-repeat center; background-size: cover;">
-  <div class="container" style="padding-top: 160px;">
-    <div class="row justify-content-between">
+<section class="bg-search">
+  <div class="container">
+    <form [formGroup]="search">
+      <div class="form-group">
+          <input formControlName="pesquisa" class="form-control" placeholder="Faça sua pesquisa :)">
+          <ul class="list-group" *ngIf="pesquisa">
+            <li *ngFor="let post of postsSearch" style="z-index: 999;" class="list-group-item">
+              <a [href]="post.url" target="_blank">{{post.title}}</a>
+            </li>
+          </ul>
+      </div>
+    </form>
+  </div>
+</section>
+<section>
+  <div class="container">
+    <h3 class="search-title text-center">Todas Postages</h3>
+    <div class="row justify-content-around">
+      <div class="col-md-4" *ngFor="let post of allPosts">
+        <div class="card shadow card-equipe m-1 p-2">       
+          <a [href]="post.author.url" target="_blank"><img style="display: block; margin-right: auto; margin-left: auto;" [src]="post.author.image.url"></a>
+          <h3 class="text-center">{{post.title}}</h3>
+          <p class="lead">
+            {{post.title}}
+          </p>
+          <span class="text-warning">{{post.published | date:'fullDate'}}</span>
+          <button type="button" class="btn btn-info btn-rounder mt-3" (click)="modal(postdetalhe, post)">Clique aqui...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #postdetalhe>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">{{postModal.title}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div [innerHTML]="postModal.content"></div>
+      <a [href]="postModal.url" target="_blank" class="btn btn-secondary btn-rounder w-100 mt-3">Veja o Artigo</a>
+    </div>
+  </ng-template>
+</section>
+<section class="bg-contato">
+  <div class="container">
+    <div class="row align-items-center">
       <div class="col-md-6">
-        <h1>Fale com agente.</h1>
+        <h1 class="text-white">Fale com agente.</h1>
         <p class="lead text-white">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
           Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -101,10 +136,112 @@
         </p>
       </div>
       <div class="col-md-6 align-items-end">
-        <div class="card shadow p-2" *ngIf="posts">
-          
+        <div class="card shadow">
+          <div class="row justify-content-center bg-success m-0 rounded">
+            <h3 class="text-white">Contanto</h3>
+          </div>
+          <div class="form-row justify-content-between m-2">
+            <div class="form-group col">
+              <input class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group col">
+              <input class="form-control" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-row justify-content-between m-2">
+            <div class="form-group col">
+              <input class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group col">
+              <input class="form-control" placeholder="Telefone">
+            </div>
+          </div>
+          <div class="form-row justify-content-between m-2">
+            <div class="form-group col">
+              <textarea class="form-control" placeholder="Menssagem"></textarea>
+            </div>
+          </div>
+          <div class="form-row justify-content-end m-2">
+            <button class="btn btn-success btn-rounder">Enviar</button>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<section class="bg-equipe">
+  <div class="container">
+    <h3 class="equipe-title text-center">Equipe</h3>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="card shadow card-equipe m-1">
+          <div class="row m-1">
+            <div class="col-md-2 align-self-center">
+              <img style="display: block; margin-right: auto; margin-left: auto;" src="./assets/ismael.jfif">
+            </div>
+            <div class="col">
+              <h1 class="text-center">Ismael Alves</h1>
+              <p class="lead">
+                Olá sou Ismael sou desenvolvedor a 3 anos já trabalhei com diversas tecnologias para 
+                desenvolvimento web e mobile mais atual Angular, flutter, nodejs e etc.
+              </p>
+              <div class="row justify-content-end">
+                <ul class="redes-social">
+                  <li class="facebook ">
+                    <a href="https://www.facebook.com/ismael.alves.ximenes" target="_blank"><i class="fa fa-facebook-official fa-3x"></i></a>
+                  </li>
+                  <li class="instagram">
+                    <a href="https://www.instagram.com/ismael.alves.ximenes/" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ismaelalvesgit" target="_blank"><i class="fa fa-github-alt fa-3x"></i></a>
+                  </li>
+                </ul> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow card-equipe m-1">
+          <div class="row m-1">
+            <div class="col-md-2 align-self-center">
+              <img style="display: block; margin-right: auto; margin-left: auto;" src="./assets/raquel.jfif">
+            </div>
+            <div class="col">
+              <h1 class="text-center">Raquel Santos</h1>
+              <p class="lead">
+                  Informática por amor🎓💞
+              </p>
+              <div class="row justify-content-end">
+                <ul class="redes-social">
+                  <li class="facebook">
+                    <a><i class="fa fa-facebook-official fa-3x"></i></a>
+                  </li>
+                  <li class="instagram">
+                    <a><i class="fa fa-instagram fa-3x"></i></a>
+                  </li>
+                  <li class="facebook">
+                    <a><i class="fa fa-linkedin-square fa-3x"></i></a>
+                  </li>
+                </ul> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="mt-3">
+  <div class="container">
+    <div class="row justify-content-around patrocinador">
+      <a href="https://phpcomrapadura.org/" target="_blank"><img src="./assets/php.png"></a>
+      <a href="https://www.facebook.com/pg/frontendce/posts/" target="_blank"><img src="./assets/front-end.png"></a>
+      <a href="https://juventude.fortaleza.ce.gov.br/rede-cuca" target="_blank"><img src="./assets/rede-cuca.jfif"></a>
+      <a href="https://flutterando.com.br/" target="_blank"><img src="./assets/flutterando.jfif"></a>
+      <a href="https://fcb3x3.com.br/" target="_blank"><img src="./assets/basquete.png"></a>
+      <a href="https://www.fortaleza.ce.gov.br/" target="_blank"><img src="./assets/prefeitura.png"></a>
     </div>
   </div>
 </section>

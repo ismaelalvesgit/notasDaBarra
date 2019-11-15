@@ -24,7 +24,5 @@ export class HeaderComponent implements OnInit {
       let element = document.getElementsByTagName('body')[0];
         element.classList.remove('sticky'); 
      }
-     console.log(window.pageYOffset)
-  }
-  
+  } 
 }

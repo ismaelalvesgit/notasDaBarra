@@ -60,8 +60,24 @@ export class BlogService {
   }
 
   //metodo que pega as postages do blog
-  getPosts(){
+  getPosts(limit?:number){
+    if(limit){
+      return this.http.get(this.baseUrl+`/posts?maxResults=${limit}&key=${this.key}`).pipe(
+        map((data:any)=>{
+          return data.items as Post[]
+        })
+      )
+    }
     return this.http.get(this.baseUrl+`/posts?key=${this.key}`).pipe(
+      map((data:any)=>{
+        return data.items as Post[]
+      })
+    )
+  }
+
+  //metodo que pega as postages do blog
+  getPostsSearch(query:string){
+    return this.http.get(this.baseUrl+`/posts/search?q=${query}&key=${this.key}`).pipe(
       map((data:any)=>{
         return data.items as Post[]
       })
