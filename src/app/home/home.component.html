@@ -1,44 +1,14 @@
 <app-header *ngIf="blog" [name]="blog.name"></app-header>
-<div class="carousel">
-  <div class="carousel-cell animated" style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
-    <div class="carousel-caption">
-      <div class="row justify-content-center animated zoomInUp">
-        <div class="col">
-          <h3 class="text-white text-1">Mais um projeto sendo constrúido</h3>
-          <p class="lead text-white">
-            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
-            it to make a type specimen book. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-cell animated" style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
-    <div class="carousel-caption">
-      <div class="row justify-content-center animated zoomInUp">
-        <div class="col">
-          <h3 class="text-white">Mais um projeto sendo constrúido</h3>
-          <p class="lead text-white">
-            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
-            it to make a type specimen book. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-cell animated"  style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
-    <div class="carousel-caption">
-      <div class="row justify-content-center animated zoomInUp">
-        <div class="col">
-          <h3 class="text-white">Mais um projeto sendo constrúido</h3>
-          <p class="lead text-white">
-            is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
-            it to make a type specimen book. 
-          </p>
-        </div>
+<div style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
+  <div class="carousel-caption">
+    <div class="row justify-content-center animated zoomInUp">
+      <div class="col">
+        <h3 class="text-white text-1">Mais um projeto sendo constrúido</h3>
+        <p class="lead text-white">
+          is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
+          it to make a type specimen book. 
+        </p>
       </div>
     </div>
   </div>
@@ -82,31 +52,26 @@
 </section>
 <section class="bg-search">
   <div class="container">
-    <form [formGroup]="search">
-      <div class="form-group">
-          <input formControlName="pesquisa" class="form-control" placeholder="Faça sua pesquisa :)">
-          <ul class="list-group" *ngIf="pesquisa">
-            <li *ngFor="let post of postsSearch" style="z-index: 999;" class="list-group-item">
-              <a [href]="post.url" target="_blank">{{post.title}}</a>
-            </li>
-          </ul>
-      </div>
-    </form>
+    <div class="form-group">
+      <input [(ngModel)]="pesquisa.title" class="form-control" placeholder="Faça sua pesquisa :)">
+    </div>
   </div>
 </section>
 <section>
   <div class="container">
     <h3 class="search-title text-center">Todas Postages</h3>
     <div class="row justify-content-around">
-      <div class="col-md-4" *ngFor="let post of allPosts">
-        <div class="card shadow card-equipe m-1 p-2">       
-          <a [href]="post.author.url" target="_blank"><img style="display: block; margin-right: auto; margin-left: auto;" [src]="post.author.image.url"></a>
+      <div class="col-md-4" *ngFor="let post of allPosts | filterBy: pesquisa">
+        <div class="card shadow card-equipe m-1 p-2 animated fadeIn">       
+          <a [href]="post.author.url" target="_blank">
+            <img style="display: block; margin-right: auto; margin-left: auto;" [src]="post.author.image.url">
+          </a>
           <h3 class="text-center">{{post.title}}</h3>
           <p class="lead">
             {{post.title}}
           </p>
           <span class="text-warning">{{post.published | date:'fullDate'}}</span>
-          <button type="button" class="btn btn-info btn-rounder mt-3" (click)="modal(postdetalhe, post)">Clique aqui...</button>
+          <a class="btn btn-info btn-rounder mt-3" routerLink="detalhe/{{post.id}}">Clique aqui...</a>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import { Blog } from '../models/blog.model';
 import { Post } from '../models/post.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -17,24 +18,16 @@ export class HomeComponent implements OnInit {
   posts:Post[]
   postModal:Post
   allPosts:Post[]
-  search:FormGroup = new FormGroup({
-    "pesquisa": new FormControl(null, [Validators.required])
-  })
-  postsSearch:Post[]
-  pesquisa:string
+  pesquisa: any = { title:''};
   modalRef: BsModalRef
 
   constructor(
     private blogS:BlogService,
-    private modalService: BsModalService
+    private spinner: NgxSpinnerService
   ) { }
 
   ngOnInit() {
-    new Flickity('.carousel', {
-      autoPlay: 2500,
-      pageDots: false,
-      wrapAround: true
-    }); 
+    this.spinner.show()
     this.blogS.getBlog().subscribe((blog)=>{
       this.blog = blog
     })
@@ -46,18 +39,7 @@ export class HomeComponent implements OnInit {
     })
     this.blogS.getPosts().subscribe((allPosts)=>{
       this.allPosts = allPosts
+      this.spinner.hide()
     })
-    this.search.valueChanges.subscribe((value)=>{
-      this.pesquisa = value.pesquisa 
-      this.blogS.getPostsSearch(value.pesquisa).subscribe((search)=>{
-        this.postsSearch = search
-      })
-     
-    })
-  }
-
-  modal(template: TemplateRef<any>, post:Post){
-    this.postModal = post
-    this.modalRef = this.modalService.show(template);
   }
 }

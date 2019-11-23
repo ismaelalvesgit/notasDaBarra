@@ -83,4 +83,9 @@ export class BlogService {
       })
     )
   }
+
+  //metodo que pega postagem por id
+  getPostId(id:string){
+    return this.http.get<Post>(this.baseUrl+`/posts/${id}?key=${this.key}`)
+  }
 }

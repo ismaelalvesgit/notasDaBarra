@@ -1,0 +1,26 @@
+<app-header *ngIf="blog" [name]="blog.name"></app-header>
+<ng-container *ngIf="post">
+  <div style="height: 70vh; width: 100%; background: url('./assets/bg.jpg') no-repeat center; background-size: cover;">
+    <div class="container h-100" >
+      <div class="row justify-content-center h-75 align-items-center">
+          <strong class="text-white">{{post.title}}</strong>
+      </div>
+      <div class="row justify-content-between align-items-end pb-3 pt-5">
+        <div class="col">
+          <a [href]="post.author.url" target="_blank"><img [src]="post.author.image.url"></a>
+          <span class="text-white ml-2">{{post.author.displayName == 'Unknown' ? "Anonimo" : post.author.displayName}}</span>
+        </div>
+        <div class="col">
+            <span class="text-warning float-right">{{post.published | date:'fullDate'}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [innerHTML]="post.content" class="container mt-3 mb-3 animated fadeIn"></div>
+  <div class="container">
+    <div class="row justify-content-start mb-3">
+      <a class="btn btn-primary col-lg-1" routerLink="/">Voltar</a>
+    </div>
+  </div>
+</ng-container>
+<app-footer></app-footer>

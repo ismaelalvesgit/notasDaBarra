@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from "@angular/forms";
+import { FilterPipeModule } from 'ngx-filter-pipe';
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { LOCALE_ID } from '@angular/core';
@@ -28,13 +29,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './includes/header/header.component';
 import { FooterComponent } from './includes/footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { DetalheComponent } from './detalhe/detalhe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    DetalheComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,8 @@ import { HomeComponent } from './home/home.component';
     TabsModule.forRoot(),
     TooltipModule.forRoot(),
     HttpClientModule,      
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    FilterPipeModule
   ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
