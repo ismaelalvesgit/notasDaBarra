@@ -3,6 +3,12 @@ footer{
     margin-top: 20px;
     padding-top: 20px;
 }
+.footer-img{
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+    border-radius: 50%;
+}
 .footer-title{
     color: #fff;
     font-size: 25px;
