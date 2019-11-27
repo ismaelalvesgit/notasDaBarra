@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 //3213900
-//5220111383097179948
+//1422953043806658221
 export const environment = {
   production: false,
   key: 'AIzaSyA04qFnHvOPdmu-I9p3gbQvaBE4iBjKAjI',
