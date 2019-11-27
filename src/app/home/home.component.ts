@@ -1,10 +1,7 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
-import Flickity from 'flickity'
+import { Component, OnInit } from '@angular/core';
 import { BlogService } from '../services/blog.service';
 import { Blog } from '../models/blog.model';
 import { Post } from '../models/post.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -19,7 +16,6 @@ export class HomeComponent implements OnInit {
   postModal:Post
   allPosts:Post[]
   pesquisa: any = { title:''};
-  modalRef: BsModalRef
 
   constructor(
     private blogS:BlogService,
@@ -30,9 +26,6 @@ export class HomeComponent implements OnInit {
     this.spinner.show()
     this.blogS.getBlog().subscribe((blog)=>{
       this.blog = blog
-    })
-    this.blogS.getPages().subscribe((pages)=>{
-      console.log(pages)
     })
     this.blogS.getPosts(3).subscribe((posts)=>{
       this.posts = posts
