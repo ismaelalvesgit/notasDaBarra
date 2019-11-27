@@ -1,10 +1,15 @@
 .card-news{
     border-radius: 20px;
-    background-color: #002147;
+    background-color: #01070d;
     width: 300px;
     position: absolute;
     right: 0px;
     top: -30px;
+}
+.bg-extreme-dark
+{
+    background-color: #01070d;
+    color: white;
 }
 .bg-contato{
     height: 450px;

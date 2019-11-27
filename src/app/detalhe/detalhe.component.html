@@ -3,7 +3,7 @@
   <div style="height: 70vh; width: 100%; background: url('./assets/bg.jpg') no-repeat center; background-size: cover;">
     <div class="container h-100" >
       <div class="row justify-content-center h-75 align-items-center">
-          <strong class="text-white">{{post.title}}</strong>
+          <h1 class="mt-5"><strong class="text-white">{{post.title}}</strong></h1>
       </div>
       <div class="row justify-content-between align-items-end pb-3 pt-5">
         <div class="col">
@@ -11,7 +11,7 @@
           <span class="text-white ml-2">{{post.author.displayName == 'Unknown' ? "Anonimo" : post.author.displayName}}</span>
         </div>
         <div class="col">
-            <span class="text-warning float-right">{{post.published | date:'fullDate'}}</span>
+            <span class="text-white bg-success p-1 rounded font-weight-bold float-right">{{post.published | date:'fullDate'}}</span>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@
   <div [innerHTML]="post.content" class="container mt-3 mb-3 animated fadeIn"></div>
   <div class="container">
     <div class="row justify-content-start mb-3">
-      <a class="btn btn-primary col-lg-1" routerLink="/">Voltar</a>
+      <a class="btn btn-danger col-lg-1" routerLink="/">Voltar</a>
     </div>
   </div>
 </ng-container>

@@ -21,3 +21,8 @@ footer{
 	background: #fff;
 	margin: 6px 0 12px 0;
 }
+.bg-extreme-dark
+{
+    background-color: #01070d;
+    color: white;
+}

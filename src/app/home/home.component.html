@@ -2,11 +2,13 @@
 <div style="height: 100vh; width: 100%; background: url('./assets/banner1.jpeg') no-repeat center; background-size: cover;">
   <div class="carousel-caption">
     <div class="row justify-content-center animated zoomInUp">
-      <div class="col">
-        <h3 class="text-white text-1">Bem-vindo</h3>
-        <p class="lead text-white">
-          Desejamos que você se sinta bem com a gente, ao mesmo tempo que encontre oportunidades e condições 
-          para aprender e crescer. Seja bem-vindo , Estamos muito felizes por ter você aqui conosco!
+      <div class="form-row bg-light p-3 rounded">
+        <h3 class="text-danger font-weight-bold">Bem-vindo(a), ao <span class="text-dark"> Notas da Barra </span>!</h3>
+        <p class="lead text-left text-dark mt-3">
+          Chega no nosso cantinho, e, se sinta bem a vontade. <br> Esperamos que encontre oportunidades e,
+          condições de aprender e crescer. <br>
+          Abstrai a mente, e, vem com a gente nessa nova jornada. <br>
+          Estamos felizes por ter você aqui conosco!
         </p>
       </div>
     </div>
@@ -64,14 +66,14 @@
       <div class="col-md-4" *ngFor="let post of allPosts | filterBy: pesquisa">
         <div class="card shadow card-equipe m-1 p-2 animated fadeIn">       
           <a [href]="post.author.url" target="_blank">
-            <img style="display: block; margin-right: auto; margin-left: auto;" [src]="post.author.image.url">
+            <img style="margin-bottom: 10px; display: block; margin-right: auto; margin-left: auto; width: 45px; height: 45px;" [src]="post.author.image.url">
           </a>
           <h3 class="text-center">{{post.title}}</h3>
           <p class="lead">
             {{post.title}}
           </p>
-          <span class="text-warning">{{post.published | date:'fullDate'}}</span>
-          <a class="btn btn-info btn-rounder mt-3" routerLink="detalhe/{{post.id}}">Clique aqui...</a>
+          <span class="text-danger">{{post.published | date:'fullDate'}}</span>
+          <a class="btn btn-dark btn-rounder mt-3" routerLink="detalhe/{{post.id}}">Clique aqui...</a>
         </div>
       </div>
     </div>
@@ -89,8 +91,8 @@
       </div>
       <div class="col-md-6 align-items-end">
         <div class="card shadow">
-          <div class="row justify-content-center bg-success m-0 rounded">
-            <h3 class="text-white">Contanto</h3>
+          <div class="row justify-content-center bg-extreme-dark p-1 m-0 rounded">
+            <h3 class="text-white">Contato</h3>
           </div>
           <ul style="list-style: none; margin-left: -40px;" class="text-black-50 text-center mt-3">
             <li><i class="fa fa-phone text-warning mr-2"></i>(85) 98910-0122</li>
